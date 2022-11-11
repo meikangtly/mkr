@@ -1,3 +1,3 @@
-# Automation jobs to setup the demo website on GCP #
+# Github actions to setup the demo website on GCP #
 
 
