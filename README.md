@@ -1,11 +1,3 @@
-# Celeritas UI Backend Express.js
+# Automation to setup the demo on GCP #
 
-## Project setup
-```
-yarn install
-```
 
-### Compiles and hot-reloads for development
-```
-yarn start
-```
