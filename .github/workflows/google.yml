@@ -14,14 +14,14 @@ name: Build and Deploy to GKE
 
 on:
   push:
-    branches: [ "test" ]
+    branches: [ "main" ]
 
 env:
-  PROJECT_ID: ${{ secrets.GKE_PROJECT }}
+  PROJECT_ID: playground-366703
   GAR_LOCATION: asia-southeast1 # TODO: update region of the Artifact Registry
-  GKE_CLUSTER: autopilot-cluster-1   # TODO: update to cluster name
+  GKE_CLUSTER: tai-cluster-dev   # TODO: update to cluster name
   GKE_ZONE: asia-southeast1   # TODO: update to cluster zone
-  DEPLOYMENT_NAME: gke-test # TODO: update to deployment name
+  DEPLOYMENT_NAME: be-test # TODO: update to deployment name
   REPOSITORY: test # TODO: update to Artifact Registry docker repository
   IMAGE: gke-demo
 
@@ -39,20 +39,29 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v3
 
-    # Configure Workload Identity Federation and generate an access token.
-    - id: 'auth'
-      name: 'Authenticate to Google Cloud'
-      uses: 'google-github-actions/auth@v0'
-      with:
-        token_format: 'access_token'
-        workload_identity_provider: 'projects/150905691052/locations/global/workloadIdentityPools/my-pool/providers/my-provider'
-        service_account: 'id-my-service-account@${{ secrets.GKE_PROJECT }}.iam.gserviceaccount.com'
+  # Configure Workload Identity Federation and generate an access token.
+   # - id: 'auth'
+   #   name: 'Authenticate to Google Cloud'
+   #   uses: 'google-github-actions/auth@v0'
+   #   with:
+   #     token_format: 'access_token'
+   #     workload_identity_provider: 'projects/150905691052/locations/global/workloadIdentityPools/my-pool/providers/my-provider'
+   #     service_account: 'id-my-service-account@${{ secrets.GKE_PROJECT }}.iam.gserviceaccount.com'
+
 
     # Alternative option - authentication via credentials json
     # - id: 'auth'
     #   uses: 'google-github-actions/auth@v0'
     #   with:
     #     credentials_json: '${{ secrets.GCP_CREDENTIALS }}'
+    
+   # Setup gcloud CLI
+    - uses: google-github-actions/setup-gcloud@94337306dda8180d967a56932ceb4ddcf01edae7
+      with:
+        service_account_key: ${{ secrets.GKE_SA_KEY }}
+        project_id: playground-366703
+
+
 
     - name: Docker configuration
       run: |-
