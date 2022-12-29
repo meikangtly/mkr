@@ -60,13 +60,6 @@ jobs:
 
     - name: 'Use gcloud CLI'
       run: 'gcloud info'
-    
-  #  # Setup gcloud CLI
-  #   - uses: google-github-actions/setup-gcloud@94337306dda8180d967a56932ceb4ddcf01edae7
-  #     with:
-  #       service_account_key: ${{ secrets.GKE_SA_KEY }}
-  #       project_id: playground-366703
-
 
     # Configure Docker to use the gcloud command-line tool as a credential
     # helper for authentication
@@ -78,19 +71,6 @@ jobs:
       with:
          cluster_name: tai-cluster-dev
          location: asia-southeast1
-
-    # uses: google-github-actions/get-gke-credentials@fb08709ba27618c31c09e014e1d8364b02e5042e
-    # with:
-        # credentials: ${{ secrets.GKE_SA_KEY }}
-        # service_account_key: ${{ secrets.GKE_SA_KEY }}
-        # project_id: playground-366703
-
-    # # Get the GKE credentials so we can deploy to the cluster
-    # - name: Set up GKE credentials
-    #   uses: google-github-actions/get-gke-credentials@v0
-    #   with:
-    #     cluster_name: ${{ env.GKE_CLUSTER }}
-    #     location: ${{ env.GKE_ZONE }}
 
     - name: ready JAVA
       #Set up JDK 19
