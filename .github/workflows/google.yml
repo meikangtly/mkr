@@ -23,7 +23,7 @@ env:
   GKE_ZONE: asia-southeast1   # TODO: update to cluster zone
   DEPLOYMENT_NAME: be-test # TODO: update to deployment name
   REPOSITORY: test # TODO: update to Artifact Registry docker repository
-  IMAGE: gke-demo
+  IMAGE: java-site
 
 jobs:
   setup-build-publish-deploy:
@@ -92,7 +92,8 @@ jobs:
     # Push the Docker image to Google Artifact Registry
     - name: Publish
       run: |-
-        docker push "$GAR_LOCATION-docker.pkg.dev/$PROJECT_ID/$REPOSITORY/$IMAGE:$GITHUB_SHA"
+        # docker push "$GAR_LOCATION-docker.pkg.dev/$PROJECT_ID/$REPOSITORY/$IMAGE:$GITHUB_SHA"
+          docker push "gcr.io/$PROJECT_ID/$IMAGE:$GITHUB_SHA"
 
     # Set up kustomize
     - name: Set up Kustomize
