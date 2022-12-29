@@ -15,7 +15,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: gke-test
+  name: java-deployment
 spec:
   replicas: 1
   selector:
