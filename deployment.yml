@@ -33,7 +33,7 @@ spec:
     spec:
       containers:
       - name: gke-test
-        image: gcr.io/project_id/repository/image:tag
+        image: gcr.io/playground-366703/java-site:9bcbd8d6a3695790e4a88012d83d58ec68ea50c8
         resources:
           requests:
             cpu: "100m"
