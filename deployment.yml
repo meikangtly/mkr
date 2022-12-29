@@ -33,7 +33,7 @@ spec:
     spec:
       containers:
       - name: gke-test
-        image: LOCATION-docker.pkg.dev/PROJECT_ID/REPOSITORY/IMAGE:TAG
+        image: gcr.io/PROJECT_ID/REPOSITORY/IMAGE:TAG
         resources:
           requests:
             cpu: "100m"
