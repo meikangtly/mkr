@@ -50,7 +50,7 @@ jobs:
       name: 'Authenticate to Google Cloud'
       uses: 'google-github-actions/auth@v1'
       with:
-        token_format: 'access_token'
+#       token_format: 'access_token'
         workload_identity_provider: 'projects/150905691052/locations/global/workloadIdentityPools/github-pipeline/providers/github-actions'
         service_account: 'github-pipeline-sa@playground-366703.iam.gserviceaccount.com'
   
@@ -77,7 +77,7 @@ jobs:
       with:
         java-version: '19'
         distribution: 'temurin' 
-        cache: 'maven'
+#       cache: 'maven'
 
     - name: Build JAR
       run: |-
