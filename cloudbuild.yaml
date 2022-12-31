@@ -1,4 +1,6 @@
 steps:
+  # - name: gcr.io/cloud-builders/gsutil
+  #   args: ["-m", "rsync", "-r", "-c", "-d", ".", "gs://somedomain.com"]
   # build the container image
 - name: "gcr.io/cloud-builders/docker"
   args: ["build", "-t", "gcr.io/playground-366703/java-site:latest", "."]
@@ -13,3 +15,5 @@ steps:
   - --gcr.io/playground-366703/java-site:latest
   - --location=asia-southeast1
   - --cluster=tai-cluster-dev	
+  options:
+  logging: CLOUD_LOGGING_ONLY
