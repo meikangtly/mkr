@@ -18,8 +18,8 @@ spec:
         app: java-test
     spec:
       containers:
-      - name: gke-test
-        image: LOCATION-docker.pkg.dev/PROJECT_ID/REPOSITORY/IMAGE:TAG
+      - name: java-test
+        image: asia-southeast1-docker.pkg.dev/playground-366703/java/java-site:latest
         resources:
           requests:
             cpu: "100m"
