@@ -11,11 +11,11 @@ steps:
   - gcr.io/playground-366703/java/java-site:latest
 
   # deploy container image to GKE
-- name: "gcr.io/cloud-builders/gke-deploy"
+- name: "gcr.io/cloud-builders/java-deployment"
   args:
   - run
   - --filename=deployment.yml
-  - --image=gcr.io/playground-366703/java/java-site:latest
+  # - --image=gcr.io/playground-366703/java/java-site:latest
   - --location=asia-southeast1
   - --cluster=tai-cluster-dev	
 
