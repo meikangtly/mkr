@@ -3,22 +3,21 @@ steps:
   #   args: ["-m", "rsync", "-r", "-c", "-d", ".", "gs://somedomain.com"]
   # build the container image
 - name: 'gcr.io/cloud-builders/docker'
-  args: [ 'build', '-t', 'asia-southeast1-docker.pkg.dev/playground-366703/java/java-site', '-f', 'Dockerfile', '.' ]
+  args: [ 'build', '-t', 'gcr.io/playground-366703/java/java-site:latest', '-f', 'Dockerfile', '.' ]
 
 - name: gcr.io/cloud-builders/docker
   args:
   - push
-  # - gcr.io/playground-366703/java/java-site:latest
-  - asia-southeast1-docker.pkg.dev/playground-366703/java/java-site
+  - gcr.io/playground-366703/java/java-site:latest
 
   # deploy container image to GKE
 - name: "gcr.io/cloud-builders/java-deployment"
   args:
   - run
   - --filename=deployment.yml
-  - --image=asia-southeast1-docker.pkg.dev/playground-366703/java/java-site
+  - --image=gcr.io/playground-366703/java/java-site:latest
   - --location=asia-southeast1
-  - --cluster=tai-cluster-dev	
+  - --cluster=tai-cluster-dev
 
 ### selet the log option
 options:
