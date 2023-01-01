@@ -2,14 +2,20 @@ steps:
   # - name: gcr.io/cloud-builders/gsutil
   #   args: ["-m", "rsync", "-r", "-c", "-d", ".", "gs://somedomain.com"]
   # build the container image
-- name: "gcr.io/cloud-builders/docker"
-  args: ["build", "-t", "gcr.io/playground-366703/java-site:latest", "."]
-  options:
-   logging: CLOUD_LOGGING_ONLY
+- name: 'gcr.io/cloud-builders/docker'
+  args: [ 'build', '-t', 'gcr.io/playground-366703/java/java-site:latest', '-f', 'dockfile', '.' ]
+  # options:
+  #  logging: CLOUD_LOGGING_ONLY
 
   # push container image
-- name: "gcr.io/cloud-builders/docker"
-  args: ["push", "gcr.io/playground-366703/java-site:latest"]
+# - name: "gcr.io/cloud-builders/docker"
+#   args: ["push", "gcr.io/playground-366703/java-site:latest"]
+
+- name: gcr.io/cloud-builders/docker
+  args:
+      - push
+      - gcr.io/playground-366703/java-site:latest
+
   # deploy container image to GKE
 - name: "gcr.io/cloud-builders/gke-deploy"
   args:
