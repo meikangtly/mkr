@@ -18,7 +18,7 @@ spec:
         app: java-test
     spec:
       containers:
-      - name: java-test
+      - name: java-test-container
         image: asia-southeast1-docker.pkg.dev/playground-366703/java/java-site:latest
         resources:
           requests:
