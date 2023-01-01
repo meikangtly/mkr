@@ -3,19 +3,19 @@ steps:
   #   args: ["-m", "rsync", "-r", "-c", "-d", ".", "gs://somedomain.com"]
   # build the container image
 - name: 'gcr.io/cloud-builders/docker'
-  args: [ 'build', '-t', 'gcr.io/playground-366703/java/java-site:latest', '-f', 'Dockerfile', '.' ]
+  args: [ 'build', '-t', 'gcr.io/playground-366703/java/java-site:$COMMIT_SHA', '-f', 'Dockerfile', '.' ]
 
 - name: gcr.io/cloud-builders/docker
   args:
   - push
-  - gcr.io/playground-366703/java/java-site:latest
+  - gcr.io/playground-366703/java/java-site:$COMMIT_SHA
 
   # deploy container image to GKE
 - name: java-deployment
   args:
   - run
   - --filename=deployment.yml
-  - --image=gcr.io/playground-366703/java/java-site:latest
+  - --image=gcr.io/playground-366703/java/java-site:$COMMIT_SHA
   - --location=asia-southeast1
   - --cluster=tai-cluster-dev
 
