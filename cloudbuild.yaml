@@ -11,7 +11,7 @@ steps:
   - gcr.io/playground-366703/java/java-site:latest
 
   # deploy container image to GKE
-- name: "gcr.io/cloud-builders/java-deployment"
+- name: java-deployment
   args:
   - run
   - --filename=deployment.yml

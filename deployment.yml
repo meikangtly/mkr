@@ -19,7 +19,7 @@ spec:
     spec:
       containers:
       - name: java-test-container
-        image: asia-southeast1-docker.pkg.dev/playground-366703/java/java-site
+        image: gcr.io/playground-366703/java/java-site:latest
         resources:
           requests:
             cpu: "100m"
