@@ -19,7 +19,7 @@ spec:
     spec:
       containers:
       - name: java-test-container
-        image: gcr.io/playground-366703/java/java-site:latest
+        image: gcr.io/playground-366703/java/java-site:$COMMIT_SHA
         resources:
           requests:
             cpu: "100m"
