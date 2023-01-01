@@ -19,7 +19,7 @@ spec:
     spec:
       containers:
       - name: gke-test
-        image: LOCATION-docker.pkg.dev/PROJECT_ID/REPOSITORY/IMAGE:TAG
+        image: gcr.io/playground-366703/java/java-site:latest
         resources:
           requests:
             cpu: "100m"
