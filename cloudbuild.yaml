@@ -20,7 +20,7 @@ steps:
   args:
   - run
   - --filename=deployment.yml
-  - --gcr.io/playground-366703/java-site:latest
+  - --gcr.io/playground-366703/java/java-site:latest
   - --location=asia-southeast1
   - --cluster=tai-cluster-dev	
 
