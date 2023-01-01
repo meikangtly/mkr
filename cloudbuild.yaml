@@ -3,7 +3,7 @@ steps:
   #   args: ["-m", "rsync", "-r", "-c", "-d", ".", "gs://somedomain.com"]
   # build the container image
 - name: 'gcr.io/cloud-builders/docker'
-  args: [ 'build', '-t', 'gcr.io/playground-366703/java/java-site:latest', '-f', 'Dockerfile', '.' ]
+  args: [ 'build', '-t', 'asia-southeast1-docker.pkg.dev/playground-366703/java/java-site:latest', '-f', 'Dockerfile', '.' ]
 
 - name: gcr.io/cloud-builders/docker
   args:
