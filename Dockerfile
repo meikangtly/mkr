@@ -1,5 +1,4 @@
-1+vbnm,./2*-[]\
-8/# Start with a base image containing Java runtime
+# Start with a base image containing Java runtime
 FROM openjdk:19 as BUILDER
 # Add Maintainer Info
 LABEL maintainer="pancras@gx3000"
