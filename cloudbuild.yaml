@@ -24,5 +24,6 @@ steps:
   - --location=asia-southeast1
   - --cluster=tai-cluster-dev	
 
+### selet the log option
 options:
   logging: CLOUD_LOGGING_ONLY
